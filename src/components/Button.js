@@ -1,3 +1,9 @@
+/* Button component 
+
+defines a HTML-button, an onclick method and a custom text, passed as property
+
+*/
+
 import PropTypes from 'prop-types';
 
 const Button = ({butText}) => {

@@ -29,11 +29,20 @@ To create our App we proceed as follows:
 + Create a subfolder `src/components` where we're going to implement the single components of our App to inject then in App.js.
     + `Header.js` 
     + `Button.js`
+    + `Tasks.js` for the array
+    + `TaskView.js` for the single task
+
+
 
     The nice thing about these components is that, we can reuse them
     as often we wish to, optionally changing params or css.
 
+All those files (components) will be imported in the main file `App.js`
 
+Icons for the `delete` functions were inported with:
+        
+        cd MY_APP
+        npm i react-icons
 
 ### New for me
 

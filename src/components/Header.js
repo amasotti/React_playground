@@ -1,8 +1,6 @@
-// we can import many packages here, including Type checking and
-// import PropTypes from 'prop-types'
+/* Header component */
 
-// define style for an element as variable
-
+// define style for an element as variable, an alternative to packing style in a css
 const headerStyle = {
   borderRadius : "10px",
   padding : "5px, 10px",
@@ -15,7 +13,7 @@ const Header = ({title, text}) => {
     <div>
     <header className="App-header">
         <h1>Task Tracer</h1>
-        <p>Hello {title}</p>
+        <p>Mr. {title}</p>
         {// A second paragraph with default style
         }
         <p style={headerStyle}> {text}</p>
@@ -26,7 +24,7 @@ const Header = ({title, text}) => {
 
 Header.defaultProps = {
     title : 'hello',
-    text : 'Something with default style'
+    text : 'Things to do...'
 }
 
 export default Header

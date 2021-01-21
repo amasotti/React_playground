@@ -1,22 +1,53 @@
 import './App.css';
 import React from 'react'
+import { useState } from'react'
 import Header from './components/Header';
 import Button from './components/Button';
+import Tasks from './components/Tasks';
 
-// App as class
-/* class App extends React.Component {
-  render() {
-    return <h1>Hello from the class</h1>
-  }
-} */
 
 const App = () => {
+/* DEFINE SOME DEFAULT TASKS 
+
+UseState is defining here the default Tasks */ 
+const [tasks, setTasks] = useState([
+  {
+    id : 1,
+    text: 'Appointment with Mr. John',
+    day: 'March, the 23rd 2021',
+    reminder : true
+  },
+  {
+    id : 2,
+    text: 'Buy new computer',
+    day: 'ASAP',
+    reminder : false
+  },
+  {
+    id : 3,
+    text: 'Phone call with Mrs. Jane',
+    day: 'March, the 22nd at 15:30',
+    reminder : true
+  }
+] )
+
+// Delete task function
+const deleteTask = (id) => {
+  console.log("Deleted item:  ", id)
+  setTasks(tasks.filter((task) => task.id !== id))
+}
+
+// toggle remainder
+
+
+// ACTUAL RETURN FUNCTION
   return (
     <div className="App-header">
-      <Header title='Pipino' />
+      <Header title='Don T. Remember' />
 
-      <div><Button butText='Insert'/>
-      <Button butText="Delete"/></div>
+      <Button butText='Insert'/>
+      {tasks.length > 0 ? 
+      <Tasks tasks={tasks} onDelete={deleteTask} /> : "No tasks to show"}
     </div>
   )
 }
