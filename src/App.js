@@ -37,8 +37,15 @@ const deleteTask = (id) => {
   setTasks(tasks.filter((task) => task.id !== id))
 }
 
-// toggle remainder
-
+// toggle reminder (flip the rimander if double click)
+const toggleRemainder = (id) =>{
+  console.log('Reminder changed on task n. ', id)
+  setTasks(
+    tasks.map((task) => 
+    task.id === id ? { ...task, reminder:
+       !task.reminder } : task
+  ))
+}
 
 // ACTUAL RETURN FUNCTION
   return (
@@ -47,7 +54,7 @@ const deleteTask = (id) => {
 
       <Button butText='Insert'/>
       {tasks.length > 0 ? 
-      <Tasks tasks={tasks} onDelete={deleteTask} /> : "No tasks to show"}
+      <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleRemainder} /> : "No tasks to show"}
     </div>
   )
 }

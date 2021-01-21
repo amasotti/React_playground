@@ -1,6 +1,8 @@
 # App with React
 
-This app was created following the instruction in [React js Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8).
+This app was created following the instruction in [React js Crash Course](https://www.youtube.com/watch?v=w7ejDZ8SWv8) with additional modifications and custom CSS.
+
+Original code available at [bradtraversy/react-crash-2021](https://github.com/bradtraversy/react-crash-2021)
 
 ## Start React JS
 We use `npx` and `npm` to create the skeleton (*template dependencies* ~ 120 packages) of our app.

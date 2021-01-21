@@ -35,11 +35,11 @@ Let's import the hook in the main file App.js
 
 
 // The task component
-const Tasks = ({ tasks, onDelete }) => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   return (
     <>
       {tasks.map((task, index) => (
-        <TaskView key={index} task={task} onDelete = {onDelete} />
+        <TaskView key={index} task={task} onDelete = {onDelete} onToggle={onToggle} />
       ))}
     </>
   )
