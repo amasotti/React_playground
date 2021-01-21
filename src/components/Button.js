@@ -6,9 +6,12 @@ defines a HTML-button, an onclick method and a custom text, passed as property
 
 import PropTypes from 'prop-types';
 
-const Button = ({butText}) => {
-  return (<button className='btn' onClick={onClick}>{butText}</button>
-  )
+const Button = ({butText, onClick}) => {
+  return (<button 
+    className='btn'
+    onClick={onClick}>
+      {butText}
+    </button>)
 }
 
 Button.defaultProps = {
@@ -16,13 +19,8 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-  butText : PropTypes.string // The label must be a string
+  butText : PropTypes.string, // The label must be a string
+  onClick : PropTypes.func
 }
 
-
-  // Add event handler
-  const onClick = (e) => {
-    console.log(e)
-    alert('Button clicked: ')
-  }
 export default Button

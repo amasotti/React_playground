@@ -1,7 +1,8 @@
 /* Component responsible for adding new Tasks */
 
 import { useState } from 'react'
-const AddTask = ({onAdd}) => {
+
+const AddTask = ({ onAdd }) => {
   // let's define what the user can pass as params
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
@@ -22,22 +23,30 @@ const AddTask = ({onAdd}) => {
     setDay('')
     setReminder(false)
   }
-
   return (
     <form className="add-task" onSubmit = {onSubmit}>
       <div className="form">
         <label>Task</label>
-        <input type="text" placeholder="Add new task"></input>
+        <input type="text" 
+        placeholder="Add new task"
+        value={text}
+        onChange = {(e) => setText(e.target.value)}
+        />
       </div>
 
       <div className="form">
-        <label>Details</label>
-        <input type="text" placeholder="Add details"></input>
+        <label>When and what?</label>
+        <input type="text" 
+        placeholder="Add details"
+        value={day}
+        onChange = {(e) => setDay(e.target.value)}
+        />
       </div>
 
       <div className="form">
-        <label>Reminder</label>
+        <label>Reminder:</label>
         <input 
+        id="remindercheck"
         type="checkbox"
         checked={reminder}
         value = {reminder}
@@ -45,15 +54,12 @@ const AddTask = ({onAdd}) => {
         />
 
 
-        <input type="submit" value="Save" className="btn"></input>
+        <input type="submit" value="Save" className="btn-block"></input>
       </div>
       
     </form>
   )
 }
 
-AddTask.propTypes = {
-
-}
 
 export default AddTask

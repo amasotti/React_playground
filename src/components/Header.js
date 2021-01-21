@@ -1,5 +1,6 @@
 /* Header component */
-
+import Button from './Button'
+//import { useLocation } from 'react-router-dom'
 // define style for an element as variable, an alternative to packing style in a css
 const headerStyle = {
   borderRadius : "10px",
@@ -8,15 +9,22 @@ const headerStyle = {
   backgroundColor : "#2ddd8aa1"
 }
 
-const Header = ({title, text}) => {
+
+const Header = ({title, text, onAdd, showAdd}) => {
   return (
     <div>
     <header className="App-header">
         <h1>Task Tracer</h1>
         <p>Mr. {title}</p>
+
+        <Button 
+        butText={showAdd ? 'Close form' : 'Add new task'} 
+        onClick={onAdd}
+        />
+
         {// A second paragraph with default style
         }
-        <p style={headerStyle}> {text}</p>
+        <p className="things" style={headerStyle}> {text}</p>
       </header>
     </div>
   )
@@ -28,7 +36,3 @@ Header.defaultProps = {
 }
 
 export default Header
-
-
-// We can also add css here
-
