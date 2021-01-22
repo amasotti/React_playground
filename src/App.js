@@ -42,10 +42,11 @@ useEffect(() => {
 
 // Delete task function (modified, in order to delete from server)
 const deleteTask = async (id) => {
-  await fetch(`http://localhost/5500/tasks/${id}`, {
-    method : 'DELETE',
-  })
   console.log("Deleted item:  ", id)
+  await fetch(`http://localhost:5500/tasks/${id}`, {
+    method: 'DELETE',
+  })
+  //  Update the task view
   setTasks(tasks.filter((task) => task.id !== id))
 }
 

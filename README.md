@@ -33,20 +33,33 @@ To create our App we proceed as follows:
     + `Button.js`
     + `Tasks.js` for the array
     + `TaskView.js` for the single task
-
-
+    + `AddTask.js`
 
     The nice thing about these components is that, we can reuse them
     as often we wish to, optionally changing params or css.
 
-All those files (components) will be imported in the main file `App.js`
+All those files (components) will be imported in the main file `App.js`, where we correspondent functions for the each components were created.
 
 Icons for the `delete` functions were inported with:
         
         cd MY_APP
         npm i react-icons
 
+
+At this point the Front-end interface is completed and we could already build it. In the second part of the tutorial a back-end JSON server was implemented. You can download the json-server with npm:
+
+        npm i -g json-server
+
+then add it to `package.json` specifying params such as port and name:
+
+        "server": "json-server --watch taskdb.json --port 5500"
+
+and then let it run with npm:
+
+        npm run server
+        
 ### New for me
 
 **The arrow operator**:
+
 In JS (ES 6) the arrow operator (=>) skips the keywords function and return as well as parenthesis. The basic syntax is `Identifier` => `Expression`.
