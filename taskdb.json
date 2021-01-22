@@ -10,7 +10,7 @@
       "id": 3,
       "text": "Phone call with Mrs. Jane",
       "day": "March, the 22nd at 15:30",
-      "reminder": true
+      "reminder": false
     },
     {
       "text": "Play with JS",

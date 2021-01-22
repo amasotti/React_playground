@@ -57,7 +57,19 @@ then add it to `package.json` specifying params such as port and name:
 and then let it run with npm:
 
         npm run server
-        
+
+## Production
+
+Once we're ready we can deploy the app just typing the cmd:
+
+        npm run build
+
+this will create the folder `build` with all the files needed to deploy the app. We can start the production environment locally typing:
+
+        serve -s build
+
+<small>If you are using a json-server or any other back-end db, make sure this is also running.</small>
+
 ### New for me
 
 **The arrow operator**:
