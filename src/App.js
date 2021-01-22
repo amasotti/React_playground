@@ -31,12 +31,18 @@ useEffect(() => {
     return data
   }
 
-  //add Task
-  const addTask = (task) => {
+  //add Task (modified in order to add directly to json)
+  const addTask = async (task) => {
     console.log("Task added: ", task)
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newTask = {id, ...task}
-    setTasks([...tasks, newTask])
+    const result = await fetch(`http://localhost:5500/tasks`, {
+      method : 'POST',
+      headers : {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify(task)
+    })
+    const data = await result.json()
+    setTasks([...tasks, data])
 
   }
 

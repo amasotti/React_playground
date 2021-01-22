@@ -17,6 +17,18 @@
       "text": "Appointment with Mr. Who",
       "day": "April, the 22nd at 15:30",
       "reminder": true
+    },
+    {
+      "text": "Play with JS",
+      "day": "tomorrow",
+      "reminder": true,
+      "id": 6
+    },
+    {
+      "text": "Visit grandpa",
+      "day": "Jan, 25th",
+      "reminder": "",
+      "id": 7
     }
   ]
 }
