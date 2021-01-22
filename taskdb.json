@@ -13,12 +13,6 @@
       "reminder": true
     },
     {
-      "id": 4,
-      "text": "Appointment with Mr. Who",
-      "day": "April, the 22nd at 15:30",
-      "reminder": true
-    },
-    {
       "text": "Play with JS",
       "day": "tomorrow",
       "reminder": true,
@@ -27,8 +21,14 @@
     {
       "text": "Visit grandpa",
       "day": "Jan, 25th",
-      "reminder": "",
+      "reminder": true,
       "id": 7
+    },
+    {
+      "text": "Buy Bananas",
+      "day": "with John, tomorrow",
+      "reminder": "",
+      "id": 8
     }
   ]
 }

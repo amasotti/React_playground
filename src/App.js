@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
 
 
 const App = () => {
@@ -31,6 +33,14 @@ useEffect(() => {
     return data
   }
 
+    // Fetch a single task
+    const fetchTask = async (id) => {
+      const res = await fetch(`http://localhost:5500/tasks/${id}`)
+      const data = await res.json()
+  
+      return data
+    }
+
   //add Task (modified in order to add directly to json)
   const addTask = async (task) => {
     console.log("Task added: ", task)
@@ -57,8 +67,18 @@ const deleteTask = async (id) => {
 }
 
 // Toggle reminder (flip the reminder if double click)
-const toggleRemainder = (id) =>{
-  console.log('Reminder changed on task n. ', id)
+const toggleRemainder = async (id) =>{
+  const taskToToggle = await fetchTask(id)
+  const updateTask = {...taskToToggle, reminder : !taskToToggle.reminder }
+
+  const result = await fetch(`http://localhost:5500/tasks/${id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body : JSON.stringify(updateTask)
+  })
+
+  const  data = await result.json()
+  console.log('Updating task n. ', id)
   setTasks(
     tasks.map((task) => 
     task.id === id ? { ...task, reminder:
@@ -68,24 +88,52 @@ const toggleRemainder = (id) =>{
 
 // ACTUAL RETURN FUNCTION
   return (
+    <Router>
     <div className="App-header">
+
+      {
+        // Show main page
+      }
 
       <Header 
       title='Don T. Remember'
       onAdd = {() => setShowAddTask (!showAddTask)}
       showAdd = {showAddTask}
       />
+      {
+        // Add task
+      }
 
-      {showAddTask && <AddTask onAdd = {addTask} />}
+      <Route
+      path = "/"
+      exact render = {(props) => (<>{showAddTask && <AddTask onAdd = {addTask} />
+      }</>
+      )}
+      />
       
-      {tasks.length > 0 ? 
+      {
+        // operations on tasks (delete, toggle)
+      }
+      
+      <Route 
+      path="/" 
+      exact render={(props) => (
+        <>
+        {tasks.length > 0 ? 
       <Tasks 
       tasks={tasks} 
       onDelete={deleteTask} 
-      onToggle={toggleRemainder} 
+      onToggle={toggleRemainder}
+
       />
-       : "No tasks to show"}
+       : "No tasks to show"}  
+        
+        
+        </>
+      )} />
+       <Footer />
     </div>
+    </Router>
   )
 }
 

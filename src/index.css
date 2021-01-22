@@ -121,3 +121,8 @@ code {
   width: 600px;
   text-align: center;
 }
+
+.about {
+  font-size: 20px;
+  color: aquamarine;
+}
